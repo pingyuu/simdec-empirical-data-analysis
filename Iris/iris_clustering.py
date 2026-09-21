@@ -26,14 +26,8 @@ g = sns.pairplot(
     vars=measurement_variables,
     hue="class",
     diag_kind="hist",
-    plot_kws={
-        "alpha": 0.7,
-        "s": 35
-    },
-    diag_kws={
-        "bins": 15,
-        "alpha": 0.6
-    }
+    plot_kws={"alpha": 0.7, "s": 35},
+    diag_kws={"bins": 15, "alpha": 0.6}
 )
 
 # Increase axis-label and tick-label sizes
@@ -45,10 +39,7 @@ for ax in g.axes.flatten():
 
 # Adjust the legend and place it at the upper-right of the entire figure
 if g._legend is not None:
-    g._legend.set_title(
-        "Class",
-        prop={"size": 14}
-    )
+    g._legend.set_title("Class", prop={"size": 14})
 
     for text in g._legend.texts:
         text.set_fontsize(12)
@@ -57,11 +48,7 @@ if g._legend is not None:
     g._legend.set_bbox_to_anchor((0.85, 1.00))
 
 # Leave space on the right for the legend
-g.figure.subplots_adjust(
-    right=0.84,
-    top=0.93
-)
-
+g.figure.subplots_adjust(right=0.84, top=0.93)
 plt.show()
 
 # Check the basic information about the dataset
@@ -247,9 +234,7 @@ numerical_inputs_iris = [
 ]
 
 # Calculate correlations between numerical inputs
-input_correlation_iris =(
-    iris[numerical_inputs_iris].corr()
-    ) 
+input_correlation_iris =(iris[numerical_inputs_iris].corr()) 
 
 # Plot correlation heatmap
 plt.figure(figsize=(9, 7))
@@ -259,10 +244,8 @@ sns.heatmap(input_correlation_iris, annot = True, fmt=".2f",
             cmap="coolwarm", vmin=-1, vmax=1, square=True)
 
 #plt.title("(c) Correlation matrix of numerical inputs in the bank marketing dataset", fontsize=16,pad=15)
-
 plt.xticks(rotation=45, ha="right", fontsize=14)
 plt.yticks(rotation=0, fontsize=14)
-
 plt.tight_layout()
 plt.show()
 
